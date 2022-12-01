@@ -13,8 +13,7 @@ int main (int argc, char **argv)
 	size_t n;
 	char *buffer = NULL;
 
-	_putchar('$');
-	_putchar(' ');
+	write(1, ":) ", 3);
 	getline(&buffer, &n, stdin);
 	return (0);
 }
