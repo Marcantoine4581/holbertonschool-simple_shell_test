@@ -43,3 +43,33 @@ char *_getenv(const char *name)
 	free(env_copy);
 	return (buffer);
 }
+
+char *find_path(char *buffer)
+{
+        int notfound = 0;
+        char *token, *path = NULL, *path_copy = NULL;
+        const char *temp = getenv("PATH");
+        struct stat st;
+
+        /* COPIE de PATH*/
+        path_copy = malloc(strlen(temp) + 1);
+        strcpy(path_copy, temp);
+
+        token = strtok(path_copy, ":");
+        while(token)
+        {
+                path = malloc(sizeof(char) * (strlen(token) + strlen(buffer) + 1));
+                strcat(path, token);
+                strcat(path, "/");
+                strcat(path, buffer);
+                if (stat(path, &st) == 0)
+                {
+                        notfound = 1;
+                        return (path);
+                        break;
+                }
+                token = strtok(NULL, ":");
+        }
+        if (notfound == 0)
+                printf("NOT FOUND\n");
+}
