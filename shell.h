@@ -31,7 +31,8 @@ char *_strdup(char *src);
 char *_strcpy(char *dest, const char *src);
 
 /* Environment functions */
-char *_getenv(const char *var);
+char *find_path(char *cmd);
+char *_getenv(const char *name);
 
 /* Singly list functions */
 list_t *add_node_end(list_t **head, const char *str);
