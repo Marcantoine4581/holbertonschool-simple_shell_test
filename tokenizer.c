@@ -15,10 +15,9 @@ char **tokenizer(char *cmd)
 	char *token;
 	char **argv = NULL;
 	int argc = 0;
-	char *fullcmd = find_path(cmd);
 
-	copy_cmd1 = strdup(fullcmd);
-	copy_cmd2 = strdup(fullcmd);
+	copy_cmd1 = strdup(cmd);
+	copy_cmd2 = strdup(cmd);
 	token = strtok(copy_cmd1, " ");
 
 	while (token)
@@ -41,7 +40,7 @@ char **tokenizer(char *cmd)
 	return (argv);
 }
 
-int main(void)
+/*int main(void)
 {
 	unsigned int i = 0;
 	char *cmd = "/bin/ls";
@@ -56,3 +55,4 @@ int main(void)
 	free(argv);
 	return (0);
 }
+*/
