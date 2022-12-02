@@ -1,8 +1,13 @@
 #include "shell.h"
-#include <string.h>
-char **tokenizer(char *cmd);
 
-char **tokenizer(char *cmd)//ls -la
+/**
+ * tokenizer - tokenizes from a char* input
+ * Description: takes a char* in input and tokenizes it
+ * @cmd: cmd to tokenize
+ * Return: returns a double pointer to tokenized version of cmd
+ */
+
+char **tokenizer(char *cmd)
 {
 	unsigned int i = 0;
 	char *copy_cmd1;
@@ -18,7 +23,6 @@ char **tokenizer(char *cmd)//ls -la
 	while (token)
 	{
 		token = strtok(NULL, " ");
-		printf("argc count: %i\n", argc);
 		argc++;
 	}
 
@@ -28,29 +32,10 @@ char **tokenizer(char *cmd)//ls -la
 	while (token)
 	{
 		argv[i] = token;
-		printf("tokenizer print: %s\n", argv[i]);
 		token = strtok(NULL, " \n");
 		i++;
 	}
 	argv[i] = NULL;
 	free(copy_cmd1);
 	return (argv);
-}
-
-int main(void)
-{
-	unsigned int i = 0;
-	char *cmd = "jean louis";
-	char **argv = NULL;
-
-	//argv = malloc(sizeof(char *) * 3);
-	argv = tokenizer(cmd);
-	
-	while (argv[i])
-	{
-		printf("%s\n", argv[i]);
-		i++;
-	}
-	free(argv);
-	return (0);
 }

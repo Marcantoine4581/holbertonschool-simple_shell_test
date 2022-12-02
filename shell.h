@@ -36,6 +36,7 @@ char *_strcpy(char *dest, const char *src);
 /* Environment functions */
 char *find_path(char *cmd);
 char *_getenv(const char *name);
+char **tokenizer(char *cmd);
 
 /* Singly list functions */
 list_t *add_node_end(list_t **head, const char *str);
