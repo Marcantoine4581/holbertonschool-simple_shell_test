@@ -64,6 +64,15 @@ char *find_path(char *buffer)
 	_strcpy(path_copy, temp);
 
 	token = strtok(path_copy, ":");
+
+	if (stat(buffer, &st) == 0)
+	{
+		notfound = 1;
+		printf("I found the path, it is the same as the command\n");
+		return(buffer);
+	}
+	
+	
 	while(token)
 	{
 		path = malloc(sizeof(char) * (_strlen(token) + _strlen(buffer) + 1));
@@ -74,6 +83,7 @@ char *find_path(char *buffer)
 		{
 			notfound = 1;
 			free(path_copy);
+			printf("I found the path, it is %s\n", path);
 			return (path);
 		}
 		token = strtok(NULL, ":");

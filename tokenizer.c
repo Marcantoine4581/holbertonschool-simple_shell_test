@@ -44,13 +44,13 @@ char **tokenizer(char *cmd)
 int main(void)
 {
 	unsigned int i = 0;
-	char *cmd = "jean louis";
+	char *cmd = "/bin/ls";
 	char **argv = NULL;
 	//argv = malloc(sizeof(char *) * 3);
 	argv = tokenizer(cmd);
 	while (argv[i])
 	{
-		printf("%s\n", argv[i]);
+		printf("this is argv %d : %s\n", i, argv[i]);
 		i++;
 	}
 	free(argv);
