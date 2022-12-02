@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 /* Global environemnt */
 extern char **environ;
@@ -24,7 +27,7 @@ typedef struct list_s
 
 /* String functions */
 int _strlen(const char *s);
-int _strcmp(char *s1, char *s2);
+int _strcmp(const char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 int _strncmp(const char *s1, const char *s2, size_t n);
 char *_strdup(char *src);

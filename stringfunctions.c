@@ -52,7 +52,7 @@ char *_strcat(char *dest, char *src)
  *         0 if s1 = s2
  *         Negative byte difference if s1 < s2
  */
-int _strcmp(char *s1, char *s2)
+int _strcmp(const char *s1, char *s2)
 {
 	while (*s1 && *s2 && *s1 == *s2)
 	{

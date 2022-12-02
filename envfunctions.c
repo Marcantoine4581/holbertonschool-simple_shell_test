@@ -21,7 +21,7 @@ char *_getenv(const char *name)
 	env_copy = malloc(sizeof(char *) * i + sizeof(char *));
 	for (i = 0; environ[i]; i++)
 	{
-		env_copy[i] = strdup(environ[i]);
+		env_copy[i] = _strdup(environ[i]);
 	}
 	env_copy[i] = NULL;
 
@@ -29,47 +29,56 @@ char *_getenv(const char *name)
 	while (env_copy[i])
 	{
 		token = strtok(env_copy[i], "=");
-		if (strcmp(name, token) == 0)
+		if (_strcmp(name, token) == 0)
 			break;
 		i++;
 	}
 	token = strtok(NULL, "=");
-	buffer = strdup(token);
-	for (i = 0; env_copy[i]; i++)
+	buffer = _strdup(token);
+/*	for (i = 0; env_copy[i]; i++)
 	{
 		free(env_copy[i]);
 	}
 	free(env_copy[i]);
-	free(env_copy);
+	free(env_copy);*/
 	return (buffer);
 }
 
+/**
+ * find_path - checks if command entered in buffer is an existing
+ * command in the shell
+ * Description: checks in the PATH variable if the command entered in
+ * buffer exists in it
+ * @buffer: command to check
+ * Return: path to the command in PATH, or NULL if it doesn't exist
+ */
+
 char *find_path(char *buffer)
 {
-        int notfound = 0;
-        char *token, *path = NULL, *path_copy = NULL;
-        const char *temp = getenv("PATH");
-        struct stat st;
+	int notfound = 0;
+	char *token, *path = NULL, *path_copy = NULL;
+	const char *temp = _getenv("PATH");
+	struct stat st;
 
-        /* COPIE de PATH*/
-        path_copy = malloc(strlen(temp) + 1);
-        strcpy(path_copy, temp);
+	path_copy = malloc(_strlen(temp) + 1);
+	_strcpy(path_copy, temp);
 
-        token = strtok(path_copy, ":");
-        while(token)
-        {
-                path = malloc(sizeof(char) * (strlen(token) + strlen(buffer) + 1));
-                strcat(path, token);
-                strcat(path, "/");
-                strcat(path, buffer);
-                if (stat(path, &st) == 0)
-                {
-                        notfound = 1;
-                        return (path);
-                        break;
-                }
-                token = strtok(NULL, ":");
-        }
-        if (notfound == 0)
-                printf("NOT FOUND\n");
+	token = strtok(path_copy, ":");
+	while(token)
+	{
+		path = malloc(sizeof(char) * (_strlen(token) + _strlen(buffer) + 1));
+		_strcat(path, token);
+		_strcat(path, "/");
+		_strcat(path, buffer);
+		if (stat(path, &st) == 0)
+		{
+			notfound = 1;
+			free(path_copy);
+			return (path);
+		}
+		token = strtok(NULL, ":");
+	}
+	if (notfound == 0)
+		printf("NOT FOUND\n");
+	return (NULL);
 }
