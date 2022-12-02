@@ -15,9 +15,10 @@ char **tokenizer(char *cmd)
 	char *token;
 	char **argv = NULL;
 	int argc = 0;
+	char *fullcmd = find_path(cmd);
 
-	copy_cmd1 = strdup(cmd);
-	copy_cmd2 = strdup(cmd);
+	copy_cmd1 = strdup(fullcmd);
+	copy_cmd2 = strdup(fullcmd);
 	token = strtok(copy_cmd1, " ");
 
 	while (token)
@@ -38,4 +39,20 @@ char **tokenizer(char *cmd)
 	argv[i] = NULL;
 	free(copy_cmd1);
 	return (argv);
+}
+
+int main(void)
+{
+	unsigned int i = 0;
+	char *cmd = "jean louis";
+	char **argv = NULL;
+	//argv = malloc(sizeof(char *) * 3);
+	argv = tokenizer(cmd);
+	while (argv[i])
+	{
+		printf("%s\n", argv[i]);
+		i++;
+	}
+	free(argv);
+	return (0);
 }
