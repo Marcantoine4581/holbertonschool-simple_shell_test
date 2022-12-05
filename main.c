@@ -21,8 +21,13 @@ int main ()
 	write(1, ":) ", 3);
 	getline(&buffer, &n, stdin);
 	argv = tokenizer(buffer);
-	fullcmd = malloc(sizeof(char) * _strlen(find_path(argv[0]) + 1));
+	printf("argv 0 = %s\n", argv[0]);
+	printf("argv 1 = %s\n", argv[1]);
+	printf("---------------------------------\n");
+	printf("test find_path\n");
+	fullcmd = malloc(sizeof(char) * 20);
 	fullcmd = find_path(argv[0]);
+	printf("fullcmd = %s\n", fullcmd);
 /*	for ( i = 0; argv[i]; i++)
 	printf("this is %d : %s\n", i, argv[i]);*/
 	execve(fullcmd, argv, environ);

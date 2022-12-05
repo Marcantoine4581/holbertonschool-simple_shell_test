@@ -18,17 +18,17 @@ char **tokenizer(char *cmd)
 
 	copy_cmd1 = strdup(cmd);
 	copy_cmd2 = strdup(cmd);
-	token = strtok(copy_cmd1, " ");
+	token = strtok(copy_cmd1, " \n");
 
 	while (token)
 	{
-		token = strtok(NULL, " ");
+		token = strtok(NULL, " \n");
 		argc++;
 	}
 
 	argv = malloc(sizeof(char *) * (argc + 1));
 
-	token = strtok(copy_cmd2, " ");
+	token = strtok(copy_cmd2, " \n");
 	while (token)
 	{
 		argv[i] = token;
