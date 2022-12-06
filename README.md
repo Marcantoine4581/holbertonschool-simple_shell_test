@@ -42,7 +42,7 @@ $
 * **Simple Shell** tokenizes the command using " " as a delimiter. Each token is stored in a double pointer, where the first pointer is the command,
 and the others one are arguments to the command.
 * If the user entered a command using it's path, like *usr/bin/ls*, **Simple Shell** will search in the mentionned path and try to execute it. If the command exists, it will execute it. If not, it will display an error message.
-* If the user simples enters a command like *pwd*, **Simple Shell** will search for it in each element of the PATH global environment directories.
+* If the user simply enters a command like *pwd*, **Simple Shell** will search for it in each directory of the PATH global environment.
 If a match is found, it will execute the command, if not, it will display an error message.
 
 
