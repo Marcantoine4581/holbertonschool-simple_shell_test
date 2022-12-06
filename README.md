@@ -43,7 +43,7 @@ The authorized functions to build the simple shell are the following :
 * ```write``` (man 2 write)
 
 ### Compilation and Usage
-To use the Simple Shell, compile all the c files in the repository and the header,then run the resulting executable.
+To use the Simple Shell, clone this repository and compile all the c files in the repository and the header,then run the resulting executable.
 ```
 gcc *.c shell.h -o simple_shell
 ./simple_shell
@@ -55,7 +55,7 @@ For example, non interactively usage will be this, in the standard shell :
 $ echo "echo Hello world" | ./simple_shell
 Hello world
 ```
-If you execute the **Simple Shell** interactively, run *./simple_shell* and you can execute simple commands.
+If you execute the **Simple Shell** interactively, run *./simple_shell* and you can execute simple commands, including optionnal arguments.
 At the end of each execution, the simple shell displays a new prompt when ready for usage.
 If you want to exit the simple shell, simply type *exit* and press Enter.
 ```
