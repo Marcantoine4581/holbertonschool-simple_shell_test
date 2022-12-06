@@ -37,6 +37,15 @@ exit
 $
 ```
 
+### Command execution
+* The user enters a command in the **Simple Shell** and presses Enter
+* **Simple Shell** tokenizes the command using " " as a delimiter. Each token is stored in a double pointer, where the first pointer is the command,
+and the others one are arguments to the command.
+* If the user entered a command using it's path, like *usr/bin/ls*, **Simple Shell* will execute it without searching in the PATH global environment.
+* If the user simples enters a command like *pwd*, **Simple Shell** will search for it in each element of the PATH global environment directories.
+If a match is found, it will execute the command, if not, it will display an error message.
+
+
 ### Authors
 * Marc-Antoine Vannier <[Marcantoine4581](https://github.com/Marcantoine4581)>
 * Thomas Borde <[thomasborde94](https://github.com/thomasborde94)>
