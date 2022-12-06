@@ -76,6 +76,8 @@ and the others one are arguments to the command.
 * If the user simply enters a command like *pwd*, **Simple Shell** will search for it in each directory of the PATH global environment.
 If a match is found, it will execute the command, if not, it will display an error message.
 
+### Manpage
+
 ### Bugs
 For now there are still memory leaks, we are actually working on debugging them.
 
