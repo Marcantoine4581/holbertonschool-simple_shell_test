@@ -25,5 +25,13 @@ For example, non interactively usage will be this, in the standard shell :
 $ echo "echo Hello world" | ./simple_shell
 Hello world
 ```
-If you execute the **Simple Shell* interactively, run ./simple_shell and you can execute simple commands.
+If you execute the **Simple Shell** interactively, run *./simple_shell* and you can execute simple commands.
 At the end of each execution, the simple shell displays a new prompt when ready for usage.
+If you want to exit the simple shell, simply type *exit* and press Enter.
+```
+$ ./simple_shell
+ls
+main.c tokenizer.c envfunctions.c shell.h README.md stringfunctions.c
+exit
+$
+```
